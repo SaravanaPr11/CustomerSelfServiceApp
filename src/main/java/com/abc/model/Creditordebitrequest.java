@@ -1,7 +1,7 @@
-package com.abcbank.model;
+package com.abc.model;
 
-import java.math.BigInteger;
 import java.util.Date;
+import java.math.BigInteger;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -12,23 +12,21 @@ import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
+
 @Entity
-@Table( name = "Lostorstolen_request")
-public class Lostorstolenrequest {
+@Table(name = "Creditordebitrequest")
+public class Creditordebitrequest {
 	
-	 @Id
+	  @Id
 	  @GeneratedValue(strategy = GenerationType.AUTO)
-	  @Column(name = "lostStolenRequestId")
-	  private int lostStolenRequestId;
+	  @Column(name = "creditDebitRequestId")
+	  private int creditDebitRequestId;
 	
 	  @Column(name = "cardType", length = 10, nullable = false)
 	  private String cardType;
 	  
 	  @Column(name = "cardNumber", length = 16)
-	  private BigInteger cardNumber;
-	  
-	  @Column(name = "lostStolenDate", nullable = false)
-	  private Date lostStolenDate;
+	  private Long cardNumber;
 	  
 	  @Column(name = "requestDate", nullable = false)
 	  @Temporal(TemporalType.DATE)
@@ -39,7 +37,7 @@ public class Lostorstolenrequest {
 	  
 	  @Column(name = "responseDate")
 	  @Temporal(TemporalType.DATE)
-	  private Date response_date;
+	  private Date responseDate;
 	  
 	  @Column(name = "responseMessage", length = 75)
 	  private String responseMessage;
@@ -47,12 +45,12 @@ public class Lostorstolenrequest {
 	  @Column(name = "responseStatus", length = 10)
 	  private String responseStatus;
 
-	public int getLostStolenRequestId() {
-		return lostStolenRequestId;
+	public int getCreditDebitRequestId() {
+		return creditDebitRequestId;
 	}
 
-	public void setLostStolenRequestId(int lostStolenRequestId) {
-		this.lostStolenRequestId = lostStolenRequestId;
+	public void setCreditDebitRequestId(int creditDebitRequestId) {
+		this.creditDebitRequestId = creditDebitRequestId;
 	}
 
 	public String getCardType() {
@@ -63,20 +61,12 @@ public class Lostorstolenrequest {
 		this.cardType = cardType;
 	}
 
-	public BigInteger getCardNumber() {
+	public Long getCardNumber() {
 		return cardNumber;
 	}
 
-	public void setCardNumber(BigInteger cardNumber) {
+	public void setCardNumber(Long cardNumber) {
 		this.cardNumber = cardNumber;
-	}
-
-	public Date getLostStolenDate() {
-		return lostStolenDate;
-	}
-
-	public void setLostStolenDate(Date lostStolenDate) {
-		this.lostStolenDate = lostStolenDate;
 	}
 
 	public Date getRequestDate() {
@@ -95,12 +85,12 @@ public class Lostorstolenrequest {
 		this.requestMessage = requestMessage;
 	}
 
-	public Date getResponse_date() {
-		return response_date;
+	public Date getResponseDate() {
+		return responseDate;
 	}
 
-	public void setResponse_date(Date response_date) {
-		this.response_date = response_date;
+	public void setResponseDate(Date responseDate) {
+		this.responseDate = responseDate;
 	}
 
 	public String getResponseMessage() {

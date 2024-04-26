@@ -1,4 +1,4 @@
-package com.abcbank.model;
+package com.abc.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

@@ -1,4 +1,4 @@
-package com.abcbank.model;
+package com.abc.model;
 
 import java.util.Date;
 
