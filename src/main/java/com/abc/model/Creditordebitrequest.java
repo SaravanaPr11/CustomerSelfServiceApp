@@ -5,9 +5,12 @@ import java.math.BigInteger;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
@@ -44,6 +47,49 @@ public class Creditordebitrequest {
 	    
 	  @Column(name = "responseStatus", length = 10)
 	  private String responseStatus;
+	  
+	  
+	  
+	  
+	  @ManyToOne(fetch = FetchType.LAZY)
+	  @JoinColumn(name = "servicerequestid")
+	  private Servicerequest request;
+	  
+	  @ManyToOne(fetch = FetchType.LAZY)
+	  @JoinColumn(name = "accountnumber")
+	  private Account account;
+	  
+	  @ManyToOne(fetch = FetchType.LAZY)
+		@JoinColumn(name = "employeeid")
+		private Employee employee;
+	  
+	  
+	  
+	  
+
+	public Servicerequest getRequest() {
+		return request;
+	}
+
+	public void setRequest(Servicerequest request) {
+		this.request = request;
+	}
+
+	public Account getAccount() {
+		return account;
+	}
+
+	public void setAccount(Account account) {
+		this.account = account;
+	}
+
+	public Employee getEmployee() {
+		return employee;
+	}
+
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
+	}
 
 	public int getCreditDebitRequestId() {
 		return creditDebitRequestId;
