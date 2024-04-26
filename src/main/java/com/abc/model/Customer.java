@@ -2,12 +2,13 @@ package com.abc.model;
  
 import java.util.*;
 
-
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
@@ -55,6 +56,10 @@ public class Customer {
 	
 	@Column(name = "state", length = 30, nullable = false)
 	private String state;
+	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
+	private List<Account>accounts= new ArrayList<Account>();
+	
 
 	public int getCustomerId() {
 		return customerId;
@@ -153,6 +158,17 @@ public class Customer {
 		this.state = state;
 	}
 
+	public List<Account> getAccounts() {
+		return accounts;
+	}
+
+	public void setAccounts(List<Account> accounts) {
+		this.accounts = accounts;
+	}
+
+	
 
 }
+
+
 

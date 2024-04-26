@@ -1,9 +1,14 @@
 package com.abc.model;
 
 import jakarta.*;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 import java.util.*;
@@ -27,7 +32,25 @@ public class Account {
 	
 	@Column(name = "ifscCode",length = 11, nullable = false )
 	private String ifscCode;
-
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="customerId")
+	private Customer customer;
+	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "account")
+	private List<Accountstatement>accountstatements= new ArrayList<Accountstatement>();
+	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "account")
+    private List<Chequebookrequest>chequebookrequests= new ArrayList<Chequebookrequest>();
+    
+	@OneToMany (cascade = CascadeType.ALL, mappedBy = "account")
+	private List<Creditordebitrequest>creditordebitrequests= new ArrayList<Creditordebitrequest>();
+	
+	@OneToMany (cascade = CascadeType.ALL, mappedBy = "account")
+	private List<Lostorstolenrequest>lostorstolenrequests= new ArrayList<Lostorstolenrequest>();
+	
+	
+	
 	public Long getAccountNumber() {
 		return accountNumber;
 	}
@@ -66,6 +89,47 @@ public class Account {
 
 	public void setIfscCode(String ifscCode) {
 		this.ifscCode = ifscCode;
+	}
+
+	
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+
+	public List<Accountstatement> getAccountstatements() {
+		return accountstatements;
+	}
+
+	public void setAccountstatements(List<Accountstatement> accountstatements) {
+		this.accountstatements = accountstatements;
+	}
+
+	public List<Chequebookrequest> getChequebookrequests() {
+		return chequebookrequests;
+	}
+
+	public void setChequebookrequests(List<Chequebookrequest> chequebookrequests) {
+		this.chequebookrequests = chequebookrequests;
+	}
+
+	public List<Creditordebitrequest> getCreditordebitrequests() {
+		return creditordebitrequests;
+	}
+
+	public void setCreditordebitrequests(List<Creditordebitrequest> creditordebitrequests) {
+		this.creditordebitrequests = creditordebitrequests;
+	}
+
+	public List<Lostorstolenrequest> getLostorstolenrequests() {
+		return lostorstolenrequests;
+	}
+
+	public void setLostorstolenrequests(List<Lostorstolenrequest> lostorstolenrequests) {
+		this.lostorstolenrequests = lostorstolenrequests;
 	}
 
 	
