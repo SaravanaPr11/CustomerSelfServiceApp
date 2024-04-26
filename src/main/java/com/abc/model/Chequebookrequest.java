@@ -4,16 +4,19 @@ import java.util.Date;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
 @Entity
 @Table(name = "chequebookRequest")
-public class Checkbookrequest {
+public class Chequebookrequest {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -43,8 +46,42 @@ public class Checkbookrequest {
 	@Column(name ="receivedStatus", length = 10)
 	private String receivedStatus;
 	
-	@Column(name = "cssRequestId")
-	private int cssRequestId;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "serviceRequestId")
+	private Servicerequest request;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "accountNumber")
+	private Account account;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "employeeId")
+	private Employee employee;
+	
+	
+	public Servicerequest getRequest() {
+		return request;
+	}
+
+	public void setRequest(Servicerequest request) {
+		this.request = request;
+	}
+
+	public Account getAccount() {
+		return account;
+	}
+
+	public void setAccount(Account account) {
+		this.account = account;
+	}
+
+	public Employee getEmployee() {
+		return employee;
+	}
+
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
+	}
 
 	public int getChequeBookRequestId() {
 		return chequeBookRequestId;
@@ -109,14 +146,5 @@ public class Checkbookrequest {
 	public void setReceivedStatus(String receivedStatus) {
 		this.receivedStatus = receivedStatus;
 	}
-
-	public int getCssRequestId() {
-		return cssRequestId;
-	}
-
-	public void setCssRequestId(int cssRequestId) {
-		this.cssRequestId = cssRequestId;
-	}
-	
 	
 }
