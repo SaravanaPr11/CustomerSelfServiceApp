@@ -30,7 +30,7 @@ public class Employee {
 	  
 	  
 	  @OneToMany(cascade = CascadeType.ALL, mappedBy = "employee")
-	  private List<Checkbookrequest> chequebookrequests  = new ArrayList<Checkbookrequest>();
+	  private List<Chequebookrequest> chequebookrequests  = new ArrayList<Chequebookrequest>();
 	  
 	  @OneToMany(cascade = CascadeType.ALL, mappedBy = "employee")
 	  private List<Creditordebitrequest> creditordebitrequests = new ArrayList<Creditordebitrequest>();
@@ -40,11 +40,11 @@ public class Employee {
 
 	  
 
-	public List<Checkbookrequest> getChequebookrequests() {
+	public List<Chequebookrequest> getChequebookrequests() {
 		return chequebookrequests;
 	}
 
-	public void setChequebookrequests(List<Checkbookrequest> chequebookrequests) {
+	public void setChequebookrequests(List<Chequebookrequest> chequebookrequests) {
 		this.chequebookrequests = chequebookrequests;
 	}
 
