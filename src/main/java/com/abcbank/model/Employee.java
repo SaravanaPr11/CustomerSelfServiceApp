@@ -13,8 +13,8 @@ public class Employee {
 	
 	  @Id
 	  @GeneratedValue(strategy = GenerationType.AUTO)
-	  @Column(name = "employee_id")
-		 private int employee_id;
+	  @Column(name = "employeeId")
+		 private int employeeId;
 	  
 	  @Column(name = "userName", length = 25, nullable = false)
 		 private String userName;
@@ -22,12 +22,12 @@ public class Employee {
 	  @Column(name = "password", length = 15, nullable = false)
 		 private String password;
 
-	public int getEmployee_id() {
-		return employee_id;
+	public int getEmployeeId() {
+		return employeeId;
 	}
 
-	public void setEmployee_id(int employee_id) {
-		this.employee_id = employee_id;
+	public void setEmployeeId(int employeeId) {
+		this.employeeId = employeeId;
 	}
 
 	public String getUserName() {
@@ -45,7 +45,6 @@ public class Employee {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	  
 	  
 
 }
