@@ -9,7 +9,7 @@ import com.abc.dto.Customerdto;
 import com.abc.service.Customerservice;
 
 @Service
-public class Customerserviceimpl {
+public class Customerserviceimpl implements Customerservice {
  
 	@Autowired
 	private Customerrepo customerrepo;
@@ -102,8 +102,81 @@ public class Customerserviceimpl {
 			map.put("Msg", "Data Update successfully");
 		}
 		return map;
+		}
+	@Override
+	public Object validateUser(Customer customer) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		String userName =customer.getUserName();
+	    String password = customer.getPassword();
 		
-		
-	
+	    
+	    Customer login = customerrepo.find(userName);
+	    
+	    if(login != null) {
+	    	if(login.getPassword().equals(password)) {
+	    		  map.put("Status", "Success");
+                  map.put("Message", "Login Successful");
+	    	}
+	    	else {
+	    		 map.put("Status", "Error!!!");
+                 map.put("Message", "Invalid Password");
+	    	}
+	    }
+	    else {
+	    	   map.put("Status", "Error!!!");
+               map.put("Message", "Invalid Username");
+	    }
+	    return map;
 	}
+	
+	
+	@Override
+	public Object updateById(Customerdto customerdto) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		Customer customer= customerrepo.findById(customerdto.getId()).orElse(null);
+		if(customer!=null) {
+			customer.setDoorStreet(customerdto.getDoorStreet());
+			customer.setCity(customerdto.getCity());
+			customer.setPincode(customerdto.getPincode());
+			customer.setPhoneNo(customerdto.getPhoneNo());
+			customer.setEmail(customerdto.getEmail());
+	        
+			customerrepo.saveAndFlush(customer);
+			map.put("Status", "Success");
+			map.put("Message", "Customer Id Updated Successfully");
+		}else {
+			map.put("Statu", "Error!!!");
+			map.put("Message", "Invalid customer Id");
+		}
+		return map;
+	}
+
+	
+	@Override
+	public Object getCustomer(int customerId) {
+		
+		Map<String, Object>map = new HashMap<>();
+		Customer customer = customerrepo.findById(customerId).orElse(null);
+		
+		if(customer != null) {
+			
+			map.put("Name", customer.getName());
+			map.put("username", customer.getUserName());
+			map.put("dob", customer.getDob());
+			map.put("Email", customer.getEmail());
+			map.put("phoneNo", customer.getPhoneNo());
+			map.put("doorStreet", customer.getDoorStreet());
+			map.put("panNo", customer.getPanNo());
+			map.put("city", customer.getCity());
+			map.put("state", customer.getState());
+			map.put("pincode", customer.getPincode());
+			map.put("password", customer.getPassword());
+			
+			}else {
+				map.put("Status", "Error");
+				map.put("Msg", "Invalid customerId");
+			}
+		  return map;	  		
+	}
+	
 }
