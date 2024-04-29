@@ -14,6 +14,9 @@ import com.abc.model.Chequebookrequest;
 import com.abc.model.Creditordebitrequest;
 import com.abc.model.Lostorstolenrequest;
 import com.abc.repository.Accountrepo;
+import com.abc.repository.Chequebookrequestrepo;
+import com.abc.repository.Creditordebitrequestrepo;
+import com.abc.repository.Lostorstolenrequestrepo;
 import com.abc.service.Servicerequestservice;
 
 @Service
@@ -35,7 +38,7 @@ public class Servicerequestserviceimpl implements Servicerequestservice {
 		{
 			if(dto.getStatus()==null)
 			{
-				List<Chequebookrequest>bookrequest=bookrequestrepo.findAll();
+				List<Chequebookrequest>bookrequest=bookRequestrepo.findAll();
 				for(Chequebookrequest chequeBookRequest:bookrequest)
 				{
 					map.put("id", chequeBookRequest.getChequeBookRequestId());
@@ -52,7 +55,7 @@ public class Servicerequestserviceimpl implements Servicerequestservice {
 			}
 			else
 			{
-				List<Chequebookrequest>bookrequest=bookrequestrepo.getrequeststatus(dto.getStatus());
+				List<Chequebookrequest>bookrequest=bookRequestrepo.getrequeststatus(dto.getStatus());
 				for(Chequebookrequest chequeBookRequest:bookrequest)
 				{
 					map.put("id", chequeBookRequest.getChequeBookRequestId());
@@ -119,13 +122,13 @@ public class Servicerequestserviceimpl implements Servicerequestservice {
 					map.put("requestdate", LostStolenCard.getRequestDate());
 					map.put("responseDate", LostStolenCard.getResponse_date());
 					map.put("responseMessage", LostStolenCard.getRequestMessage());
-				    map.put("responsestatus",LostStolenCard.getResponseStatus());				
-					map.put("serviceid",LostStolenCard.getServicerequest().getServicerequestid());
-					map.put("accountNumber", LostStolenCard.getAccount().getAccountNumber());
-					map.put("customerId", LostStolenCard.getAccount().getCustomermaster().getCustomerId());
+				   // map.put("responsestatus",LostStolenCard.getResponseStatus());				
+					//map.put("serviceid",LostStolenCard.getServicerequest().getServicerequestid());
+					//map.put("accountNumber", LostStolenCard.getAccount().getAccountNumber());
+					//map.put("customerId", LostStolenCard.getAccount().getCustomermaster().getCustomerId());
 				}
 				return map;
-			return lost;
+			//return lost;
 			}
 			else
 			{
