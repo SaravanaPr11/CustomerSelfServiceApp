@@ -16,6 +16,7 @@ import com.abc.model.Lostorstolenrequest;
 import com.abc.repository.Accountrepo;
 import com.abc.repository.Chequebookrequestrepo;
 import com.abc.repository.Creditordebitrequestrepo;
+import com.abc.repository.Lostorstolenrequestrepo;
 import com.abc.service.Servicerequestservice;
 
 @Service
@@ -116,18 +117,18 @@ public class Servicerequestserviceimpl implements Servicerequestservice {
 				List<Lostorstolenrequest>lost=cardrepo.findAll();
 				for(Lostorstolenrequest LostStolenCard:lost)
 				{
-					map.put("id", LostStolenCard.getLostStolenRequestId());
-			        map.put("stolendate",LostStolenCard.getLostStolenDate());
+					map.put("id", LostStolenCard.getLostorStolenRequestId());
+			        map.put("stolendate",LostStolenCard.getLostorStolenDate());
 					map.put("requestdate", LostStolenCard.getRequestDate());
-					map.put("responseDate", LostStolenCard.getResponse_date());
+					map.put("responseDate", LostStolenCard.getResponseDate());
 					map.put("responseMessage", LostStolenCard.getRequestMessage());
-				    map.put("responsestatus",LostStolenCard.getResponseStatus());				
-					map.put("serviceid",LostStolenCard.getServicerequest().getServicerequestid());
-					map.put("accountNumber", LostStolenCard.getAccount().getAccountNumber());
-					map.put("customerId", LostStolenCard.getAccount().getCustomermaster().getCustomerId());
+//				    map.put("responsestatus",LostStolenCard.getResponseStatus());				
+//					map.put("serviceid",LostStolenCard.getServicerequest().getServicerequestid());
+//					map.put("accountNumber", LostStolenCard.getAccount().getAccountNumber());
+//					map.put("customerId", LostStolenCard.getAccount().getCustomermaster().getCustomerId());
 				}
 				return map;
-			return lost;
+			//return lost;
 			}
 			else
 			{
