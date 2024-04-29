@@ -22,7 +22,7 @@ public class Lostorstolenrequest {
 	 @Id
 	  @GeneratedValue(strategy = GenerationType.AUTO)
 	  @Column(name = "lostStolenRequestId")
-	  private int lostStolenRequestId;
+	  private int lostorStolenRequestId;
 	
 	  @Column(name = "cardType", length = 10, nullable = false)
 	  private String cardType;
@@ -31,7 +31,7 @@ public class Lostorstolenrequest {
 	  private BigInteger cardNumber;
 	  
 	  @Column(name = "lostStolenDate", nullable = false)
-	  private Date lostStolenDate;
+	  private Date lostorStolenDate;
 	  
 	  @Column(name = "requestDate", nullable = false)
 	  @Temporal(TemporalType.DATE)
@@ -42,7 +42,7 @@ public class Lostorstolenrequest {
 	  
 	  @Column(name = "responseDate")
 	  @Temporal(TemporalType.DATE)
-	  private Date response_date;
+	  private Date responseDate;
 	  
 	  @Column(name = "responseMessage", length = 75)
 	  private String responseMessage;
@@ -89,12 +89,12 @@ public class Lostorstolenrequest {
 		this.employee = employee;
 	}
 
-	public int getLostStolenRequestId() {
-		return lostStolenRequestId;
+	public int getLostorStolenRequestId() {
+		return lostorStolenRequestId;
 	}
 
-	public void setLostStolenRequestId(int lostStolenRequestId) {
-		this.lostStolenRequestId = lostStolenRequestId;
+	public void setLostorStolenRequestId(int lostStolenRequestId) {
+		this.lostorStolenRequestId = lostStolenRequestId;
 	}
 
 	public String getCardType() {
@@ -113,12 +113,12 @@ public class Lostorstolenrequest {
 		this.cardNumber = cardNumber;
 	}
 
-	public Date getLostStolenDate() {
-		return lostStolenDate;
+	public Date getLostorStolenDate() {
+		return lostorStolenDate;
 	}
 
-	public void setLostStolenDate(Date lostStolenDate) {
-		this.lostStolenDate = lostStolenDate;
+	public void setLostorStolenDate(Date lostStolenDate) {
+		this.lostorStolenDate = lostStolenDate;
 	}
 
 	public Date getRequestDate() {
@@ -137,12 +137,12 @@ public class Lostorstolenrequest {
 		this.requestMessage = requestMessage;
 	}
 
-	public Date getResponse_date() {
-		return response_date;
+	public Date getResponseDate() {
+		return responseDate;
 	}
 
 	public void setResponse_date(Date response_date) {
-		this.response_date = response_date;
+		this.responseDate = response_date;
 	}
 
 	public String getResponseMessage() {
