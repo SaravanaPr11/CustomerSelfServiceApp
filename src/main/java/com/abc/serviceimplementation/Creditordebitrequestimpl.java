@@ -15,11 +15,12 @@ import com.abc.repository.Accountrepo;
 import com.abc.repository.Servicerequestrepo;
 import com.abc.repository.Creditordebitrequestrepo;
 import com.abc.model.Creditordebitrequest;
+import com.abc.model.Servicerequest;
 import com.abc.model.Account;
-
+import com.abc.dto.Creditordebitrequestdto;
 
 @Service
-public class Creditordebitrequestserviceimpl implements Creditordebitrequestservice{
+public class Creditordebitrequestimpl implements Creditordebitrequestservice{
 
 	@Autowired
 	private Accountrepo accountRepo;
@@ -74,7 +75,52 @@ return list;
 
 
 
+@Override
+public Object saverequest(Creditordebitrequestdto creditrequest) {
 
+  Map<String,Object>map=new HashMap<String, Object>();
+
+  if(creditrequest.getCardType().isEmpty()||creditrequest.getCardType()==null)
+{
+  map.put("status","error");
+  map.put("msg","enter the valid cardtype");
+}
+  else if(creditrequest.getAccountNumber()==0)
+{
+map.put("status","error");
+map.put("msg","enter the valid accountnumber");
+}
+else if(creditrequest.getServiceRequestId()==0)
+{
+map.put("status","error");
+map.put("msg","enter the valid requestid");
+}
+else
+{
+Creditordebitrequest creditDebitCard= new Creditordebitrequest();
+creditDebitCard.setCardType(creditrequest.getCardType());
+Account myAccount =  accountRepo.findById(creditrequest.getAccountNumber()).orElse(null);
+
+creditDebitCard.setAccount(myAccount);
+creditDebitCard.setRequestDate(new Date());
+Servicerequest serviceRequest =  servicerequestrepo.findById(creditrequest.getServiceRequestId()).orElse(null);
+creditDebitCard.setRequest(serviceRequest);
+creditDebitCard.setResponseStatus("pending");
+creditDebitCard.setRequestMessage(creditrequest.getRequestMessage());
+Creditordebitrequest crdDebCard =creditdebitrequestRepo.save(creditDebitCard);
+map.put("status","success");
+map.put("msg","data saved successfully");
+
+
+}
+return map ;
+}
+
+@Override
+public Object saveCreditordebitrequest(Creditordebitrequestdto creditdebitDto) {
+	// TODO Auto-generated method stub
+	return null;
+}
 	
 	
 	

@@ -14,6 +14,8 @@ import com.abc.model.Chequebookrequest;
 import com.abc.model.Creditordebitrequest;
 import com.abc.model.Lostorstolenrequest;
 import com.abc.repository.Accountrepo;
+import com.abc.repository.Chequebookrequestrepo;
+import com.abc.repository.Creditordebitrequestrepo;
 import com.abc.service.Servicerequestservice;
 
 @Service
@@ -24,7 +26,7 @@ public class Servicerequestserviceimpl implements Servicerequestservice {
 	@Autowired
 	private Creditordebitrequestrepo cardrequestrepo;
 	@Autowired
-	private Chequebookrequestrepo bookRequestrepo;
+	private Chequebookrequestrepo bookrequestrepo;
 	@Autowired
 	private Lostorstolenrequestrepo cardrepo;
 
