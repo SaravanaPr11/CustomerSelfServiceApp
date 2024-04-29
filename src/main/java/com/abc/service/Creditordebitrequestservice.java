@@ -4,7 +4,7 @@ import com.abc.dto.Creditordebitrequestdto;
 
 public interface Creditordebitrequestservice {
 
-	public Object saveCreditordebitrequest(Creditordebitrequestdto creditdebitDto);
+//	public Object saveCreditordebitrequest(Creditordebitrequestdto creditdebitDto);
 	
 	public Object getAllCreditordebitRequest();
 
