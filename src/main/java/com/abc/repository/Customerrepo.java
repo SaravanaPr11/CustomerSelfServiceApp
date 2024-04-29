@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import com.abc.model.Customer;
 
 public interface Customerrepo extends JpaRepository<Customer, Integer> {
-	@Query("slect e from Customer e where e.userName= :userName")
+	@Query("select e from Customer e where e.userName= :userName")
 	Customer find(@Param("userName")String username);
 
 }
