@@ -11,6 +11,7 @@ import com.abc.model.Accountstatement;
 
 @Repository
 public interface Accountrepo extends JpaRepository<Account, Long>{
+	
 	@Query(value="Select * from account where customerId=:customerId",nativeQuery=true)
 	List<Account> findByCustomerId(int customerId);
 

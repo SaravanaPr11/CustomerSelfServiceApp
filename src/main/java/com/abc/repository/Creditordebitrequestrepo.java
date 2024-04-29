@@ -23,7 +23,7 @@ public interface Creditordebitrequestrepo extends JpaRepository<Creditordebitreq
 //	@Query (value="Select *from Creditordebitrequest where accountNumber=:accountNumber",nativeQuery = true)
 //	List<Creditordebitrequest> findbyaccountnumber(long accountNumber);
 //	
-	@Query(value="Select * from creditdebitrequest where servicerequest_id=:service_request_id",nativeQuery=true)
+	@Query(value="Select * from creditdebitrequest where servicerequestid=:servicerequestid",nativeQuery=true)
 	List<Creditordebitrequest> findByservicerequestId(int serviceRequestId);
 
 	 @Query(value="Select * from creditdebitrequest where responseStatus=:status",nativeQuery=true)

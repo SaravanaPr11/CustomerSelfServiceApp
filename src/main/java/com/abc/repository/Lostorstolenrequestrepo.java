@@ -10,12 +10,12 @@ import com.abc.model.Lostorstolenrequest;
 
 public interface Lostorstolenrequestrepo extends JpaRepository<Lostorstolenrequest, Integer> {
 
-	@Query(value = "select*from Lostorstolen_request where service_request_id=:service_reques_tid", nativeQuery=true)
+	@Query(value = "select*from Lostorstolen_request where servicerequestid=:servicerequestid", nativeQuery=true)
 	List<Lostorstolenrequest> findbyservicerequestid(int serviceRequestId);
 	
-	@Query(value="select*from Lostorstolenrequest where response_status=:status", nativeQuery=true)
+	@Query(value="select*from Lostorstolenrequest where responsestatus=:responsestatus", nativeQuery=true)
 	List<Lostorstolenrequest>getrequeststatus(String status);
 	
-	@Query(value="select*from Lostorstolenrequest where account_number=:account_number",nativeQuery=true)
+	@Query(value="select*from Lostorstolenrequest where accountnumber=:accountnumber",nativeQuery=true)
 	List<Lostorstolenrequest>findbyaccountnumber(Long accountNumber);
 }
