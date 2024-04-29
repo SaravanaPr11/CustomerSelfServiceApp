@@ -15,6 +15,7 @@ import com.abc.model.Chequebookrequest;
 import com.abc.model.Servicerequest;
 import com.abc.repository.Accountrepo;
 import com.abc.repository.Chequebookrequestrepo;
+import com.abc.repository.Servicerequestrepo;
 import com.abc.service.Chequebookrequestservice;
 
 @Service
@@ -24,6 +25,8 @@ public class Chequebookrequestserviceimpl implements Chequebookrequestservice{
 	private Chequebookrequestrepo chequebookrequestrepo;
 	
 	private Accountrepo accountrepo;
+	
+	private Servicerequestrepo servicerequestrepo;
 
 	@Override
 	public Object saveCheque(Chequebookrequest chequebookrequest) {
@@ -122,9 +125,9 @@ public class Chequebookrequestserviceimpl implements Chequebookrequestservice{
 			Account myAccount = accountrepo.findById(chequebookrequestdto.getAccountNumber()).orElse(null);
 			chequeBook.setAccount(myAccount);
 			chequeBook.setRequestDate(new Date());
-			//Servicerequest serviceRequest1 = servicerequestrepo.findById(chequeBookDTO.getService_request_id()).orElse(null);
+			Servicerequest serviceRequest1 = servicerequestrepo.findById(chequebookrequestdto.getServiceRequestId()).orElse(null);
 
-			//chequeBook.setRequest(serviceRequest1);
+			chequeBook.setRequest(serviceRequest1);
 			chequeBook.setRequestMessage(chequebookrequestdto.getRequestMessage());
 			chequeBook.setResponseStatus("pending");
 			Chequebookrequest creditrequest = chequebookrequestrepo.save(chequeBook);
