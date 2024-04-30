@@ -2,9 +2,9 @@ package com.abc.dto;
 
 public class Customerdto {
 
-
+	
 	private int id;
-    private String doorStreet;
+	private String doorStreet;
     private String city;
     private String pincode;
     private String phoneNo;
@@ -47,8 +47,6 @@ public class Customerdto {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
     
     
-	
 }

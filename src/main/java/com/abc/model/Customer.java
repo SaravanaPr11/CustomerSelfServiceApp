@@ -14,13 +14,13 @@ import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
 @Entity
-@Table( name="Customer")
+@Table(name="Customer")
 public class Customer {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "customerID")
-	private int customerId;
+	private int customerID;
 	
 	@Column(name = "name", length = 30, nullable=false)
 	private String name;
@@ -36,12 +36,11 @@ public class Customer {
 	private Date dob;
 	
 	@Column(name= "phoneNo", length = 10, nullable = false)
-    private String phoneNo;
+	private String phoneNo;
 	
 	@Column(name= " doorStreet", length = 45, nullable = false)
-    private String doorStreet;
+	private String doorStreet;
 	
-
 	@Column(name="city", length=20, nullable= false)
 	private String city;
 	
@@ -52,21 +51,17 @@ public class Customer {
 	private String panNo;
 	
 	@Column(name = "email", length = 35, nullable = false)
-	private String email;
+	private String email ;
 	
 	@Column(name = "state", length = 30, nullable = false)
 	private String state;
-	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
-	private List<Account>accounts= new ArrayList<Account>();
-	
 
 	public int getCustomerId() {
-		return customerId;
+		return customerID;
 	}
 
 	public void setCustomerId(int customerId) {
-		this.customerId = customerId;
+		customerID = customerId;
 	}
 
 	public String getName() {
@@ -117,7 +112,6 @@ public class Customer {
 		this.doorStreet = doorStreet;
 	}
 
-
 	public String getCity() {
 		return city;
 	}
@@ -157,18 +151,8 @@ public class Customer {
 	public void setState(String state) {
 		this.state = state;
 	}
-
-	public List<Account> getAccounts() {
-		return accounts;
-	}
-
-	public void setAccounts(List<Account> accounts) {
-		this.accounts = accounts;
-	}
-
 	
-
+	
+	
+	
 }
-
-
-
