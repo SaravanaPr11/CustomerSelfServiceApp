@@ -1,4 +1,4 @@
-package com.abcbankk.controller;
+package com.abc.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -7,8 +7,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import com.abcbankk.dto.CreditordebitRequestDto;
-import com.abcbankk.service.CreditordebitRequestService;
+
+import com.abc.dto.CreditordebitRequestDto;
+import com.abc.service.CreditordebitRequestService;
+
 
 @CrossOrigin
 @RestController

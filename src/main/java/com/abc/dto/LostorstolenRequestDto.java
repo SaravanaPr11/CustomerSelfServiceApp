@@ -1,4 +1,4 @@
-package com.abcbankk.dto;
+package com.abc.dto;
 
 import java.math.BigInteger;
 import java.util.Date;

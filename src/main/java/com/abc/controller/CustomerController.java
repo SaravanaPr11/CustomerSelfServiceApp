@@ -1,4 +1,4 @@
-package com.abcbankk.controller;
+package com.abc.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.abcbankk.dto.CustomerValidateDTO;
-import com.abcbankk.dto.Customerdto;
-import com.abcbankk.service.Customerservice;
+import com.abc.dto.CustomerValidateDTO;
+import com.abc.dto.Customerdto;
+import com.abc.service.Customerservice;
 
 @CrossOrigin
 @RestController

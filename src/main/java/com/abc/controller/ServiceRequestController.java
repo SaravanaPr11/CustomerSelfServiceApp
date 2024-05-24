@@ -1,4 +1,4 @@
-package com.abcbankk.controller;
+package com.abc.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.abcbankk.dto.ServiceRequestDto;
-import com.abcbankk.service.ServiceRequestService;
+import com.abc.dto.ServiceRequestDto;
+import com.abc.service.ServiceRequestService;
 
 @CrossOrigin
 @RestController
