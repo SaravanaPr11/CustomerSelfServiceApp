@@ -1,4 +1,4 @@
-package com.abc.model;
+package com.abcbankk.model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,56 +15,18 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "Employee")
 public class Employee {
-	
 	  @Id
 	  @GeneratedValue(strategy = GenerationType.AUTO)
 	  @Column(name = "employeeId")
 		 private int employeeId;
-	  
+
 	  @Column(name = "userName", length = 25, nullable = false)
 		 private String userName;
-	
+
 	  @Column(name = "password", length = 15, nullable = false)
 		 private String password;
-	  
-	  
-	  
-	  @OneToMany(cascade = CascadeType.ALL, mappedBy = "employee")
-	  private List<Chequebookrequest> chequebookrequests  = new ArrayList<Chequebookrequest>();
-	  
-	  @OneToMany(cascade = CascadeType.ALL, mappedBy = "employee")
-	  private List<Creditordebitrequest> creditordebitrequests = new ArrayList<Creditordebitrequest>();
-	  
-	  @OneToMany(cascade = CascadeType.ALL, mappedBy = "employee")
-	  private List<Lostorstolenrequest> lostorstolenrequests = new ArrayList<Lostorstolenrequest>();
 
-	  
-
-	public List<Chequebookrequest> getChequebookrequests() {
-		return chequebookrequests;
-	}
-
-	public void setChequebookrequests(List<Chequebookrequest> chequebookrequests) {
-		this.chequebookrequests = chequebookrequests;
-	}
-
-	public List<Creditordebitrequest> getCreditordebitrequests() {
-		return creditordebitrequests;
-	}
-
-	public void setCreditordebitrequests(List<Creditordebitrequest> creditordebitrequests) {
-		this.creditordebitrequests = creditordebitrequests;
-	}
-
-	public List<Lostorstolenrequest> getLostorstolenrequests() {
-		return lostorstolenrequests;
-	}
-
-	public void setLostorstolenrequests(List<Lostorstolenrequest> lostorstolenrequests) {
-		this.lostorstolenrequests = lostorstolenrequests;
-	}
-
-	public int getEmployeeId() {
+	  public int getEmployeeId() {
 		return employeeId;
 	}
 
@@ -87,6 +49,37 @@ public class Employee {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	  
 
+	public List<ChequebookRequest> getChequebookrequests() {
+		return chequebookrequests;
+	}
+
+	public void setChequebookrequests(List<ChequebookRequest> chequebookrequests) {
+		this.chequebookrequests = chequebookrequests;
+	}
+
+	public List<CreditordebitRequest> getCreditordebitrequests() {
+		return creditordebitrequests;
+	}
+
+	public void setCreditordebitrequests(List<CreditordebitRequest> creditordebitrequests) {
+		this.creditordebitrequests = creditordebitrequests;
+	}
+
+	public List<LostorstolenRequest> getLostorstolenrequests() {
+		return lostorstolenrequests;
+	}
+
+	public void setLostorstolenrequests(List<LostorstolenRequest> lostorstolenrequests) {
+		this.lostorstolenrequests = lostorstolenrequests;
+	}
+
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "employee")
+	  private List<ChequebookRequest> chequebookrequests  = new ArrayList<>();
+
+	  @OneToMany(cascade = CascadeType.ALL, mappedBy = "employee")
+	  private List<CreditordebitRequest> creditordebitrequests = new ArrayList<>();
+
+	  @OneToMany(cascade = CascadeType.ALL, mappedBy = "employee")
+	  private List<LostorstolenRequest> lostorstolenrequests = new ArrayList<>();
 }

@@ -1,7 +1,7 @@
-package com.abc.model;
+package com.abcbankk.model;
 
-import java.util.Date;
 import java.math.BigInteger;
+import java.util.Date;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -15,88 +15,55 @@ import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
-
 @Entity
-@Table(name = "Creditordebitrequest")
-public class Creditordebitrequest {
-	
+@Table( name = "CreditordebitRequest")
+public class CreditordebitRequest {
 	  @Id
 	  @GeneratedValue(strategy = GenerationType.AUTO)
-	  @Column(name = "creditDebitRequestId")
-	  private int creditDebitRequestId;
-	
+	  @Column(name = "creditdebitRequestId")
+	  private int creditdebitRequestId;
+
 	  @Column(name = "cardType", length = 10, nullable = false)
 	  private String cardType;
-	  
+
 	  @Column(name = "cardNumber", length = 16)
-	  private Long cardNumber;
-	  
+	  private BigInteger cardNumber;
+
 	  @Column(name = "requestDate", nullable = false)
 	  @Temporal(TemporalType.DATE)
 	  private Date requestDate;
-	  
+
 	  @Column(name = "requestMessage", length = 75, nullable = false)
 	  private String requestMessage;
-	  
+
 	  @Column(name = "responseDate")
 	  @Temporal(TemporalType.DATE)
 	  private Date responseDate;
-	  
+
 	  @Column(name = "responseMessage", length = 75)
 	  private String responseMessage;
-	    
+
 	  @Column(name = "responseStatus", length = 10)
 	  private String responseStatus;
-	  
-	  
-	  
-	  
+
 	  @ManyToOne(fetch = FetchType.LAZY)
-	  @JoinColumn(name = "servicerequestid")
-	  private Servicerequest request;
-	  
+	  @JoinColumn(name = "serviceRequestId")
+	  private ServiceRequest request;
+
 	  @ManyToOne(fetch = FetchType.LAZY)
-	  @JoinColumn(name = "accountnumber")
+	  @JoinColumn(name = "accountNumber")
 	  private Account account;
-	  
+
 	  @ManyToOne(fetch = FetchType.LAZY)
-		@JoinColumn(name = "employeeid")
+		@JoinColumn(name = "employeeId")
 		private Employee employee;
-	  
-	  
-	  
-	  
 
-	public Servicerequest getRequest() {
-		return request;
+	public int getCreditdebitRequestId() {
+		return creditdebitRequestId;
 	}
 
-	public void setRequest(Servicerequest request) {
-		this.request = request;
-	}
-
-	public Account getAccount() {
-		return account;
-	}
-
-	public void setAccount(Account account) {
-		this.account = account;
-	}
-
-	public Employee getEmployee() {
-		return employee;
-	}
-
-	public void setEmployee(Employee employee) {
-		this.employee = employee;
-	}
-
-	public int getCreditDebitRequestId() {
-		return creditDebitRequestId;
-	}
-
-	public void setCreditDebitRequestId(int creditDebitRequestId) {
-		this.creditDebitRequestId = creditDebitRequestId;
+	public void setCreditdebitRequestId(int creditdebitRequestId) {
+		this.creditdebitRequestId = creditdebitRequestId;
 	}
 
 	public String getCardType() {
@@ -107,11 +74,11 @@ public class Creditordebitrequest {
 		this.cardType = cardType;
 	}
 
-	public Long getCardNumber() {
+	public BigInteger getCardNumber() {
 		return cardNumber;
 	}
 
-	public void setCardNumber(Long cardNumber) {
+	public void setCardNumber(BigInteger cardNumber) {
 		this.cardNumber = cardNumber;
 	}
 
@@ -154,6 +121,29 @@ public class Creditordebitrequest {
 	public void setResponseStatus(String responseStatus) {
 		this.responseStatus = responseStatus;
 	}
-	  
-	  
+
+	public ServiceRequest getRequest() {
+		return request;
+	}
+
+	public void setRequest(ServiceRequest request) {
+		this.request = request;
+	}
+
+	public Account getAccount() {
+		return account;
+	}
+
+	public void setAccount(Account account) {
+		this.account = account;
+	}
+
+	public Employee getEmployee() {
+		return employee;
+	}
+
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
+	}
+
 }

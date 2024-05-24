@@ -1,9 +1,15 @@
-package com.abc.repository;
+package com.abcbankk.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import com.abc.model.Servicerequest;
+import com.abcbankk.model.ServiceRequest;
 
-public interface Servicerequestrepo extends JpaRepository<Servicerequest, Integer> {
+@Repository
+public interface ServiceRequestRepo extends JpaRepository<ServiceRequest, Integer> {
+
+
+
+
 
 }

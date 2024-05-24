@@ -1,4 +1,4 @@
-package com.abc.model;
+package com.abcbankk.model;
 
 import java.math.BigInteger;
 import java.util.Date;
@@ -16,85 +16,58 @@ import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
 @Entity
-@Table( name = "Lostorstolen_request")
-public class Lostorstolenrequest {
-	
-	 @Id
+@Table( name = "LostorstolenRequest")
+public class LostorstolenRequest {
+
+	  @Id
 	  @GeneratedValue(strategy = GenerationType.AUTO)
-	  @Column(name = "lostStolenRequestId")
-	  private int lostorStolenRequestId;
-	
+	  @Column(name = "loststolenRequestId")
+	  private int loststolenRequestId;
+
 	  @Column(name = "cardType", length = 10, nullable = false)
 	  private String cardType;
-	  
+
 	  @Column(name = "cardNumber", length = 16)
 	  private BigInteger cardNumber;
-	  
-	  @Column(name = "lostStolenDate", nullable = false)
-	  private Date lostorStolenDate;
-	  
+
+	  @Column(name = "lostorstolenDate", nullable = false)
+	  private Date lostorstolenDate;
+
 	  @Column(name = "requestDate", nullable = false)
 	  @Temporal(TemporalType.DATE)
 	  private Date requestDate;
-	  
+
 	  @Column(name = "requestMessage", length = 75, nullable = false)
 	  private String requestMessage;
-	  
+
 	  @Column(name = "responseDate")
 	  @Temporal(TemporalType.DATE)
 	  private Date responseDate;
-	  
+
 	  @Column(name = "responseMessage", length = 75)
 	  private String responseMessage;
-	    
+
 	  @Column(name = "responseStatus", length = 10)
 	  private String responseStatus;
-	  
-	  
+
 	  @ManyToOne(fetch = FetchType.LAZY)
-	  @JoinColumn(name = "servicerequestid")
-	  private Servicerequest request;
-	  
+	  @JoinColumn(name = "serviceRequestId")
+	  private ServiceRequest request;
+
 	  @ManyToOne(fetch = FetchType.LAZY)
-	  @JoinColumn(name = "accountnumber")
+	  @JoinColumn(name = "accountNumber")
 	  private Account account;
-	  
+
 	  @ManyToOne(fetch = FetchType.LAZY)
-		@JoinColumn(name = "employeeid")
+		@JoinColumn(name = "employeeId")
 		private Employee employee;
-	  
-	  
 
-	public Servicerequest getRequest() {
-		return request;
+	public int getLoststolenRequestId() {
+		return loststolenRequestId;
 	}
 
-	public void setRequest(Servicerequest request) {
-		this.request = request;
-	}
-
-	public Account getAccount() {
-		return account;
-	}
-
-	public void setAccount(Account account) {
-		this.account = account;
-	}
-
-	public Employee getEmployee() {
-		return employee;
-	}
-
-	public void setEmployee(Employee employee) {
-		this.employee = employee;
-	}
-
-	public int getLostorStolenRequestId() {
-		return lostorStolenRequestId;
-	}
-
-	public void setLostorStolenRequestId(int lostStolenRequestId) {
-		this.lostorStolenRequestId = lostStolenRequestId;
+	public void setLoststolenRequestId(int loststolenRequestId) {
+		this.loststolenRequestId = loststolenRequestId;
 	}
 
 	public String getCardType() {
@@ -113,12 +86,12 @@ public class Lostorstolenrequest {
 		this.cardNumber = cardNumber;
 	}
 
-	public Date getLostorStolenDate() {
-		return lostorStolenDate;
+	public Date getLostorstolenDate() {
+		return lostorstolenDate;
 	}
 
-	public void setLostorStolenDate(Date lostStolenDate) {
-		this.lostorStolenDate = lostStolenDate;
+	public void setLostorstolenDate(Date lostorstolenDate) {
+		this.lostorstolenDate = lostorstolenDate;
 	}
 
 	public Date getRequestDate() {
@@ -141,8 +114,8 @@ public class Lostorstolenrequest {
 		return responseDate;
 	}
 
-	public void setResponse_date(Date response_date) {
-		this.responseDate = response_date;
+	public void setResponseDate(Date responseDate) {
+		this.responseDate = responseDate;
 	}
 
 	public String getResponseMessage() {
@@ -160,6 +133,30 @@ public class Lostorstolenrequest {
 	public void setResponseStatus(String responseStatus) {
 		this.responseStatus = responseStatus;
 	}
-	  
-	  
+
+	public ServiceRequest getRequest() {
+		return request;
+	}
+
+	public void setRequest(ServiceRequest request) {
+		this.request = request;
+	}
+
+	public Account getAccount() {
+		return account;
+	}
+
+	public void setAccount(Account account) {
+		this.account = account;
+	}
+
+	public Employee getEmployee() {
+		return employee;
+	}
+
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
+	}
+
+
 }

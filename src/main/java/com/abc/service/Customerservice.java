@@ -5,14 +5,13 @@ import com.abc.model.Customer;
 
 public interface Customerservice {
 
-	public Object validateUser(Customer customer);
+public	Object validateUser(Customer customer);
 
-	public Object getAllCustomer();
+public Object getAllCustomer();
 
-	public Object getCustomer(int customerId);
+public Object getCustomer(int customerID);
 
-	public Object updateById(Customerdto customerDto);
+public Object updateById(Customerdto customerdto);
 
-	
-	
 }
+

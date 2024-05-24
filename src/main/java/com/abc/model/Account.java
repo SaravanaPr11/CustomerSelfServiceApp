@@ -1,6 +1,8 @@
-package com.abc.model;
+package com.abcbankk.model;
 
-import jakarta.*;
+import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,127 +13,119 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
-import java.util.*;
-
 @Entity
 @Table( name = "Account")
 public class Account {
-	
-	@Id
-	@Column(name = "accountNumber",length = 17, nullable = false )
-	private Long accountNumber;
-	
-	@Column(name = "accounType",length = 20, nullable = false)
-	private String accountType;
-	
-	@Column(name = "accountBalance",nullable = false )
-	private Double accountBalance;
-	
-	@Column(name = "branchName",length = 45, nullable = false )
-	private String branchName;
-	
-	@Column(name = "ifscCode",length = 11, nullable = false )
-	private String ifscCode;
-	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="customerId")
-	private Customer customer;
-	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "account")
-	private List<Accountstatement>accountstatements= new ArrayList<Accountstatement>();
-	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "account")
-    private List<Chequebookrequest>chequebookrequests= new ArrayList<Chequebookrequest>();
-    
-	@OneToMany (cascade = CascadeType.ALL, mappedBy = "account")
-	private List<Creditordebitrequest>creditordebitrequests= new ArrayList<Creditordebitrequest>();
-	
-	@OneToMany (cascade = CascadeType.ALL, mappedBy = "account")
-	private List<Lostorstolenrequest>lostorstolenrequests= new ArrayList<Lostorstolenrequest>();
-	
-	
-	
-	public Long getAccountNumber() {
-		return accountNumber;
-	}
+	    @Id
+	    @Column(name = "accountNumber",length = 17, nullable = false)
+		private Long accountNumber;
 
-	public void setAccountNumber(Long accountNumber) {
-		this.accountNumber = accountNumber;
-	}
+	    @Column(name = "accountType", length = 20, nullable = false)
+		private String accountType;
 
-	public String getAccountType() {
-		return accountType;
-	}
+	    @Column(name = "accountBalance", nullable = false)
+		private Double accountBalance;
 
-	public void setAccountType(String accountType) {
-		this.accountType = accountType;
-	}
+		@Column(name = "branchName", length = 45, nullable = false)
+		private String branchName;
 
-	public Double getAccountBalance() {
-		return accountBalance;
-	}
+	    @Column(name = "ifscCode", length = 11, nullable = false)
+		private String ifscCode;
 
-	public void setAccountBalance(Double accountBalance) {
-		this.accountBalance = accountBalance;
-	}
+	    @ManyToOne(fetch = FetchType.LAZY)
+	 	@JoinColumn(name = "customerId")
+	 	private Customer customer;
 
-	public String getBranchName() {
-		return branchName;
-	}
+	    @OneToMany(cascade = CascadeType.ALL, mappedBy = "account")
+		private List<AccountStatement> accountstatements = new ArrayList<>();
 
-	public void setBranchName(String branchName) {
-		this.branchName = branchName;
-	}
+		@OneToMany(cascade = CascadeType.ALL, mappedBy = "account")
+		  private List<ChequebookRequest> chequebookrequests  = new ArrayList<>();
 
-	public String getIfscCode() {
-		return ifscCode;
-	}
+		  @OneToMany(cascade = CascadeType.ALL, mappedBy = "account")
+		  private List<CreditordebitRequest> creditordebitrequests = new ArrayList<>();
 
-	public void setIfscCode(String ifscCode) {
-		this.ifscCode = ifscCode;
-	}
+		  @OneToMany(cascade = CascadeType.ALL, mappedBy = "account")
+		  private List<LostorstolenRequest> lostorstolenrequests = new ArrayList<>();
 
-	
-	public Customer getCustomer() {
-		return customer;
-	}
+		public Long getAccountNumber() {
+			return accountNumber;
+		}
 
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
-	}
+		public void setAccountNumber(Long accountNumber) {
+			this.accountNumber = accountNumber;
+		}
 
-	public List<Accountstatement> getAccountstatements() {
-		return accountstatements;
-	}
+		public String getAccountType() {
+			return accountType;
+		}
 
-	public void setAccountstatements(List<Accountstatement> accountstatements) {
-		this.accountstatements = accountstatements;
-	}
+		public void setAccountType(String accountType) {
+			this.accountType = accountType;
+		}
 
-	public List<Chequebookrequest> getChequebookrequests() {
-		return chequebookrequests;
-	}
+		public Double getAccountBalance() {
+			return accountBalance;
+		}
 
-	public void setChequebookrequests(List<Chequebookrequest> chequebookrequests) {
-		this.chequebookrequests = chequebookrequests;
-	}
+		public void setAccountBalance(Double accountBalance) {
+			this.accountBalance = accountBalance;
+		}
 
-	public List<Creditordebitrequest> getCreditordebitrequests() {
-		return creditordebitrequests;
-	}
+		public String getBranchName() {
+			return branchName;
+		}
 
-	public void setCreditordebitrequests(List<Creditordebitrequest> creditordebitrequests) {
-		this.creditordebitrequests = creditordebitrequests;
-	}
+		public void setBranchName(String branchName) {
+			this.branchName = branchName;
+		}
 
-	public List<Lostorstolenrequest> getLostorstolenrequests() {
-		return lostorstolenrequests;
-	}
+		public String getIfscCode() {
+			return ifscCode;
+		}
 
-	public void setLostorstolenrequests(List<Lostorstolenrequest> lostorstolenrequests) {
-		this.lostorstolenrequests = lostorstolenrequests;
-	}
+		public void setIfscCode(String ifscCode) {
+			this.ifscCode = ifscCode;
+		}
 
-	
-	
+		public Customer getCustomer() {
+			return customer;
+		}
+
+		public void setCustomer(Customer customer) {
+			this.customer = customer;
+		}
+
+		public List<AccountStatement> getAccountstatements() {
+			return accountstatements;
+		}
+
+		public void setAccountstatements(List<AccountStatement> accountstatements) {
+			this.accountstatements = accountstatements;
+		}
+
+		public List<ChequebookRequest> getChequebookrequests() {
+			return chequebookrequests;
+		}
+
+		public void setChequebookrequests(List<ChequebookRequest> chequebookrequests) {
+			this.chequebookrequests = chequebookrequests;
+		}
+
+		public List<CreditordebitRequest> getCreditordebitrequests() {
+			return creditordebitrequests;
+		}
+
+		public void setCreditordebitrequests(List<CreditordebitRequest> creditordebitrequests) {
+			this.creditordebitrequests = creditordebitrequests;
+		}
+
+		public List<LostorstolenRequest> getLostorstolenrequests() {
+			return lostorstolenrequests;
+		}
+
+		public void setLostorstolenrequests(List<LostorstolenRequest> lostorstolenrequests) {
+			this.lostorstolenrequests = lostorstolenrequests;
+		}
+
 }

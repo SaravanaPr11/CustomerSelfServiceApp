@@ -1,4 +1,4 @@
-package com.abc.repository;
+package com.abcbankk.repository;
 
 import java.util.List;
 
@@ -7,13 +7,13 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.abc.model.Accountstatement;
+import com.abcbankk.model.AccountStatement;
+
 @Repository
-public interface Accountstatementrepo extends JpaRepository <Accountstatement,Integer> {
-	
-	
-	@Query("Select e from Accountstatement e where e.Account.accountNumber=:accountNumber")
-	List< Accountstatement> findByAccountnumber(@Param("accountNumber") long accountNumber);
-	
+public interface Accountstatementrepo extends JpaRepository<AccountStatement, Integer> {
+
+
+	@Query(value="Select * from account_statement where account_number =:accountNumber",nativeQuery = true)
+	List< AccountStatement> findByAccountnumber(@Param("accountNumber") Long accountNumber);
 
 }

@@ -1,33 +1,28 @@
-package com.abc.repository;
+package com.abcbankk.repository;
 
+import java.math.BigInteger;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.abc.model.Creditordebitrequest;
-import com.abc.service.Creditordebitrequestservice;
+import com.abcbankk.model.CreditordebitRequest;
 
+@Repository
+public interface CreditordebitRequestRepo extends JpaRepository<CreditordebitRequest, Integer>{
 
+	@Query(value="Select * from creditordebit_request where service_request_id=:serviceRequestId",nativeQuery=true)
+	List<CreditordebitRequest> findByservicerequestId(@Param("serviceRequestId") int serviceRequestId);
 
-public interface Creditordebitrequestrepo extends JpaRepository<Creditordebitrequest, Integer>{
+	 @Query(value="Select * from creditordebit_request where account_number=:accountNumber",nativeQuery=true)
+	List<CreditordebitRequest> findbyAccountNumber(@Param("accountNumber") long accountNumber);
 
-//	List<Creditordebitrequest> findbyaccountnumber(long accountNumber);
-//	
-//	List<Creditordebitrequest>getrequeststatus(String status);
-//	
-//	@Query(value = "select*from Creditordebitrequest where serviceRequestId=:serviceRequestId", nativeQuery=true)
-//  List<Creditordebitrequest> findbyserviceId(int serviceRequestId);
-//	
-//	@Query (value="Select *from Creditordebitrequest where accountNumber=:accountNumber",nativeQuery = true)
-//	List<Creditordebitrequest> findbyaccountnumber(long accountNumber);
-//	
-	@Query(value="Select * from creditdebitrequest where servicerequestid=:servicerequestid",nativeQuery=true)
-	List<Creditordebitrequest> findByservicerequestId(int serviceRequestId);
+	 @Query(value="Select * from creditordebit_request where card_number=:cardNumber",nativeQuery=true)
+	 CreditordebitRequest findbyCardNumer(@Param("cardNumber") BigInteger bigInteger);
 
-	 @Query(value="Select * from creditdebitrequest where responseStatus=:status",nativeQuery=true)
-	List<Creditordebitrequest> getrequeststatus(String status);
+	@Query(value="Select * from creditordebit_request where account_number=:accountNumber and response_status=:status",nativeQuery=true)
+	List<CreditordebitRequest> getstatusandAccountNumber(@Param("status") String status,@Param("accountNumber") long accountNumber);
 
-	
 }
