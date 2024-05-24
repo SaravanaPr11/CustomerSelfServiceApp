@@ -1,7 +1,7 @@
-package com.abc.service;
+package com.abcbankk.service;
 
 public interface Accountservice {
 
-	Object getaccountdetails(int customerId);
+	public Object getaccountdetails(int customerId);
 
 }

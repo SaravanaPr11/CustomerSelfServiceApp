@@ -1,4 +1,4 @@
-package com.abc.serviceimplementation;
+package com.abcbankk.serviceImplementation;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -8,137 +8,94 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import com.abc.dto.Chequebookrequestdto;
-import com.abc.model.Account;
-import com.abc.model.Chequebookrequest;
-import com.abc.model.Servicerequest;
-import com.abc.repository.Accountrepo;
-import com.abc.repository.Chequebookrequestrepo;
-import com.abc.repository.Servicerequestrepo;
-import com.abc.service.Chequebookrequestservice;
+import com.abcbankk.dto.ChequebookRequestDto;
+import com.abcbankk.model.Account;
+import com.abcbankk.model.ChequebookRequest;
+import com.abcbankk.model.ServiceRequest;
+import com.abcbankk.repository.Accountrepo;
+import com.abcbankk.repository.ChequebookRequestRepo;
+import com.abcbankk.repository.ServiceRequestRepo;
+import com.abcbankk.service.ChequebookRequestService;
 
 @Service
-public class Chequebookrequestserviceimpl implements Chequebookrequestservice{
-	
+public class ChequebookRequestServiceImpl implements ChequebookRequestService {
+
 	@Autowired
-	private Chequebookrequestrepo chequebookrequestrepo;
-	
+	private ChequebookRequestRepo chequebookRequestRepo;
+
+	@Autowired
 	private Accountrepo accountrepo;
-	
-	private Servicerequestrepo servicerequestrepo;
 
-	@Override
-	public Object saveCheque(Chequebookrequest chequebookrequest) {
-		int ChequebookRequestId = chequebookrequest.getChequeBookRequestId();
-		Map<String, Object> map=new HashMap<String, Object>();
-		
-		if(chequebookrequest.getRequestMessage().isEmpty()) {
-			map.put("status", "error");
-			map.put("msg", "Please enter the Request message :");
-		}
-		else if(chequebookrequest.getRequestDate()== null) {
-			map.put("status", "error");
-			map.put("msg", "Please enter the Request Date :");
-		}
-		
-		
-		else if (chequebookrequest.getNoOfChequeLeaves().isEmpty()) {
-			map.put("status", "error");
-			map.put("msg", "Please enter the Number of Leaves in chequeBook :");
-		}
-		else if(chequebookrequest.getResponseDate()== null) {
-			map.put("status", "error");
-			map.put("msg", "Please enter the Response Date :");
-		}	
-		
-		else if(chequebookrequest.getResponseMessage().isEmpty()) {
-			map.put("status", "error");
-			map.put("msg", "Please enter the Response Message:");
-		}		
-		else if(chequebookrequest.getResponseStatus().isEmpty()) {
-			map.put("status", "error");
-			map.put("msg", "Please enter the Response status:");
-		}
-		else {
-			chequebookrequestrepo.save(chequebookrequest);
-			map.put("status", "Success");
-			map.put("msg", "Data saved Successfully");
-		}
-		return map;
-	}
+	@Autowired
+	private ServiceRequestRepo serviceRequestRepo;
 
+	@Transactional
 	@Override
-	public Object getAllcard() {
-		List<Map<String, Object>> list=new ArrayList<Map<String,Object>>();
-		List<Chequebookrequest> chequebookRequest = chequebookrequestrepo.findAll();
-		for(Chequebookrequest e:chequebookRequest) {
-			Map<String, Object> map=new HashMap<String, Object>();
-			map.put("chequebookRequestId", e.getChequeBookRequestId());
-			map.put("numberOfChequeLeaves", e.getNoOfChequeLeaves());
-			map.put("responseDate", e.getResponseDate());
-			map.put("responseMessage", e.getResponseMessage());
-			map.put("requestMessage", e.getRequestMessage());
-			map.put("responseStatus", e.getResponseStatus());
-//			map.put("serviceRequestId", e.getServiceRequestId());
-			
-			list.add(map);
+	public Object getcardById(long accountNumber) {
+		List<Map<String, Object>> list = new ArrayList<>();
+
+		List<ChequebookRequest> chequebookRequest2 = chequebookRequestRepo.findByAccountNumber(accountNumber);
+
+		if (chequebookRequest2 != null) {
+			for (ChequebookRequest chequebookRequest : chequebookRequest2) {
+				Map<String, Object> map = new HashMap<>();
+				map.put("chequebookRequestId", chequebookRequest.getChequebookRequestId());
+				map.put("numberOfChequeLeaves", chequebookRequest.getNoOfChequeLeaves());
+				map.put("resquestDate", chequebookRequest.getRequestDate());
+				map.put("responseDate", chequebookRequest.getResponseDate());
+				map.put("responseMessage", chequebookRequest.getResponseMessage());
+				map.put("requestMessage", chequebookRequest.getRequestMessage());
+				map.put("responseStatus", chequebookRequest.getResponseStatus());
+				list.add(map);
+			}
+
 		}
 		return list;
 	}
 
+	@Transactional
 	@Override
-	public Object getcardById(int id) {
-		Map<String, Object> map=new HashMap<String, Object>();
-		Chequebookrequest chequebookRequest = chequebookrequestrepo.findById(id).orElse(null);
-		if(chequebookRequest!=null){
-			map.put("chequebookRequestId", chequebookRequest.getChequeBookRequestId());
-			map.put("numberOfChequeLeaves", chequebookRequest.getNoOfChequeLeaves());
-			map.put("responseDate", chequebookRequest.getResponseDate());
-			map.put("responseMessage", chequebookRequest.getResponseMessage());
-			map.put("requestMessage", chequebookRequest.getRequestMessage());
-			map.put("responseStatus", chequebookRequest.getResponseStatus());
-//			map.put("serviceRequestId", chequebookRequest.getServiceRequestId());
-			return map;
-		}		
-		return null;
-	}
+	public Object saveRequest(ChequebookRequestDto chequebookRequestDto) {
 
-	@Override
-	public Object saveRequest(Chequebookrequestdto chequebookrequestdto) {
-		
-		Map<String, Object> map = new HashMap<String, Object>();
-		if (chequebookrequestdto.getNoOfChequeLeaves().isEmpty() || chequebookrequestdto.getNoOfChequeLeaves() == null) {
+		Map<String, Object> map = new HashMap<>();
+		if (chequebookRequestDto.getNoOfChequeLeaves().isEmpty()
+				|| chequebookRequestDto.getNoOfChequeLeaves() == null) {
 			map.put("status", "error");
 			map.put("msg", "give the valid numbers");
 		}
 
-		else if (chequebookrequestdto.getAccountNumber() == 0) {
+		else if (chequebookRequestDto.getAccountNumber() == 0) {
 			map.put("status", "error");
 			map.put("msg", "give the valid accountNumber");
-		} else if (chequebookrequestdto.getServiceRequestId() == 0) {
-			map.put("status", "error");
-			map.put("msg", "give the valid requesttypeid");
 		} else {
-			Chequebookrequest chequeBook = new Chequebookrequest();
-			chequeBook.setNoOfChequeLeaves(chequebookrequestdto.getNoOfChequeLeaves());;
-			Account myAccount = accountrepo.findById(chequebookrequestdto.getAccountNumber()).orElse(null);
-			chequeBook.setAccount(myAccount);
-			chequeBook.setRequestDate(new Date());
-			Servicerequest serviceRequest1 = servicerequestrepo.findById(chequebookrequestdto.getServiceRequestId()).orElse(null);
+			ChequebookRequest chequeBook = new ChequebookRequest();
+			chequeBook.setNoOfChequeLeaves(chequebookRequestDto.getNoOfChequeLeaves());
 
-			chequeBook.setRequest(serviceRequest1);
-			chequeBook.setRequestMessage(chequebookrequestdto.getRequestMessage());
-			chequeBook.setResponseStatus("pending");
-			Chequebookrequest creditrequest = chequebookrequestrepo.save(chequeBook);
+			Account myAccount = accountrepo.findById(chequebookRequestDto.getAccountNumber()).orElse(null);
+			if (myAccount != null) {
+				chequeBook.setAccount(myAccount);
+			} else {
+				return "No account number found";
+			}
+			chequeBook.setRequestDate(new Date());
+			ServiceRequest serviceRequest1 = serviceRequestRepo.findById(1).orElse(null);
+			if (serviceRequest1 != null) {
+				chequeBook.setRequest(serviceRequest1);
+			} else {
+				return "No Service Request ID found";
+			}
+			chequeBook.setRequestMessage(chequebookRequestDto.getRequestMessage());
+			chequeBook.setResponseStatus("Pending");
+			chequebookRequestRepo.save(chequeBook);
+
 			map.put("status", "success");
-			map.put("msg", "data saved successfully");
+			map.put("msg", "ChequeBookRequest saved successfully");
 
 		}
 		return map;
 
 	}
-	
-	
-	
+
 }

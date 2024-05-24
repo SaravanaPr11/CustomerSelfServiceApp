@@ -1,15 +1,13 @@
-package com.abc.service;
+package com.abcbankk.service;
 
-import com.abc.dto.Creditordebitrequestdto;
+import com.abcbankk.dto.CreditordebitRequestDto;
 
-public interface Creditordebitrequestservice {
+public interface CreditordebitRequestService {
 
-//	public Object saveCreditordebitrequest(Creditordebitrequestdto creditdebitDto);
-	
-	public Object getAllCreditordebitRequest();
+	public Object getAllCreditordebitRequest(long accountNumber);
 
-	public Object getbyId(int cDid);
+	public Object getbyId(int customerId);
 
-	public Object saverequest(Creditordebitrequestdto creditrequest);
+	public Object saverequest(CreditordebitRequestDto creditrequest);
 
 }

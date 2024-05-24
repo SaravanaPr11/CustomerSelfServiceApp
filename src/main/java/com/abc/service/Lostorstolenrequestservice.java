@@ -1,11 +1,14 @@
-package com.abc.service;
+package com.abcbankk.service;
 
-import com.abc.dto.Lostorstolenrequestdto;
+import com.abcbankk.dto.LostorstolenRequestDto;
 
-public interface Lostorstolenrequestservice {
+public interface LostorstolenRequestService {
 
-	public Object getbycustomerid(int customerId);
 
-	public Object savelostcard(Lostorstolenrequestdto dtos);
+	public Object getbycustomerid(int customer_id);
+
+	public Object savelostcard(LostorstolenRequestDto dtos);
+
+	public Object getbyAccountNumber(long accountNumber);
 
 }

@@ -1,8 +1,7 @@
-package com.abc.service;
+package com.abcbankk.service;
 
 public interface Accountstatementservice {
-	
-	
-	public Object getstatement(long accountNumber);
+
+	public Object getstatement(Long accountNumber);
 
 }

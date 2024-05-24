@@ -1,17 +1,14 @@
-package com.abc.service;
+package com.abcbankk.service;
 
-import com.abc.dto.Customerdto;
-import com.abc.model.Customer;
+import com.abcbankk.dto.CustomerValidateDTO;
+import com.abcbankk.dto.Customerdto;
 
 public interface Customerservice {
 
-public	Object validateUser(Customer customer);
+	public Object getCustomer(int customerId);
 
-public Object getAllCustomer();
+	public Object updateById(Customerdto customerdto);
 
-public Object getCustomer(int customerID);
-
-public Object updateById(Customerdto customerdto);
+	public Object validateUser(CustomerValidateDTO customer);
 
 }
-

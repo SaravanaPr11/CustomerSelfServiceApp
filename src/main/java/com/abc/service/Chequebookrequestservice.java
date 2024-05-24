@@ -1,16 +1,12 @@
-package com.abc.service;
+package com.abcbankk.service;
 
-import com.abc.dto.Chequebookrequestdto;
-import com.abc.model.Chequebookrequest;
+import com.abcbankk.dto.ChequebookRequestDto;
 
-public interface Chequebookrequestservice {
+public interface ChequebookRequestService {
 
-	public Object saveCheque(Chequebookrequest chequebookrequest);
 
-	public Object getAllcard();
+	public Object getcardById(long accountNumber);
 
-	public Object getcardById(int id);
-
-	public Object saveRequest(Chequebookrequestdto chequebookrequestdto);
+	public Object saveRequest(ChequebookRequestDto chequebookrequestdto);
 
 }

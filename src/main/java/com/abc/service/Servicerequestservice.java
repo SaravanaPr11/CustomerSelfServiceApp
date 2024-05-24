@@ -1,11 +1,10 @@
-package com.abc.service;
+package com.abcbankk.service;
 
-import com.abc.dto.Servicerequestdto;
+import com.abcbankk.dto.ServiceRequestDto;
 
-public interface Servicerequestservice {
-	
-	public Object getbyserviceid(Servicerequestdto dto);
+public interface ServiceRequestService {
 
-	public Object getaccountalldetails(int customerId);
+	public Object getbyserviceid(ServiceRequestDto dto);
+
 
 }
