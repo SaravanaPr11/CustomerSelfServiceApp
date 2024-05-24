@@ -1,44 +1,37 @@
-package com.abc.controller;
+package com.abcbankk.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.abc.dto.Creditordebitrequestdto;
-import com.abc.service.Creditordebitrequestservice;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+import com.abcbankk.dto.CreditordebitRequestDto;
+import com.abcbankk.service.CreditordebitRequestService;
 
-
-
-
+@CrossOrigin
 @RestController
-public class Creditordebitrequestcontroller {
+public class CreditordebitRequestController {
 
 	@Autowired
-	private Creditordebitrequestservice creditordebitrequestservice;
-      
-//	@PostMapping("/savecreditordebit")
-//	public 	Object savecreditordebitrequest(@RequestBody Creditordebitrequestdto creditordebitrequestdto) {
-//		return (creditordebitrequestdto.saveCreditordebitrequest(creditordebitrequestdto));
-//	}
-//	
-	@GetMapping("/getcreditordebit")
-	public Object getcreditordebitrequest() {
-		return(creditordebitrequestservice.getAllCreditordebitRequest());
+	private CreditordebitRequestService creditordebitRequestService;
+
+	@GetMapping("/getcreditordebit/{accountNumber}")
+	public Object getcreditordebitrequest(@PathVariable long accountNumber) {
+		return(creditordebitRequestService.getAllCreditordebitRequest(accountNumber));
 	}
-	
-	@GetMapping("/getbyid/{CDid}")
-	public Object getbycustomerid(@PathVariable int CDid){
-		return(creditordebitrequestservice.getbyId(CDid));
+
+	@GetMapping("/getlistofAccountbyCustomerId/{customerId}")
+	public Object getbycustomerid(@PathVariable int customerId){
+		return(creditordebitRequestService.getbyId(customerId));
 	}
-	
+
 	@PostMapping("/savecardrequest")
-	public Object saveCardrequest(@RequestBody Creditordebitrequestdto creditrequest) {
-	
-		return (creditordebitrequestservice.saverequest(creditrequest));
+	public Object saveCardrequest(@RequestBody CreditordebitRequestDto creditrequest) {
+
+		return (creditordebitRequestService.saverequest(creditrequest));
 	}
-	
-	
 }
+
+

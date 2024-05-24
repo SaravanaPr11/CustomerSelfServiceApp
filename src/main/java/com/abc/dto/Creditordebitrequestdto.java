@@ -1,15 +1,9 @@
-package com.abc.dto;
+package com.abcbankk.dto;
 
-import java.io.*;
-
-public class Creditordebitrequestdto {
+public class CreditordebitRequestDto {
 
 	private String cardType;
-
-	private int serviceRequestId;
-
 	private long accountNumber;
-
 	private String requestMessage;
 
 	public String getCardType() {
@@ -18,14 +12,6 @@ public class Creditordebitrequestdto {
 
 	public void setCardType(String cardType) {
 		this.cardType = cardType;
-	}
-
-	public int getServiceRequestId() {
-		return serviceRequestId;
-	}
-
-	public void setServiceRequestId(int serviceRequestId) {
-		this.serviceRequestId = serviceRequestId;
 	}
 
 	public long getAccountNumber() {
@@ -44,9 +30,4 @@ public class Creditordebitrequestdto {
 		this.requestMessage = requestMessage;
 	}
 
-	
-	
-	
-	
-	
 }

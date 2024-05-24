@@ -1,16 +1,16 @@
-package com.abc.dto;
+package com.abcbankk.dto;
 
 public class Customerdto {
 
-	
 	private int id;
 	private String doorStreet;
-    private String city;
-    private String pincode;
-    private String phoneNo;
-    private String email;
-    
-    
+	private String city;
+	private String pincode;
+	private String phoneNo;
+	private String email;
+
+
+
 	public int getId() {
 		return id;
 	}
@@ -47,6 +47,7 @@ public class Customerdto {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-    
-    
+
+
+
 }

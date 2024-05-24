@@ -1,22 +1,16 @@
-package com.abc.dto;
+package com.abcbankk.dto;
 
-import java.util.*;
+import java.math.BigInteger;
+import java.util.Date;
 
-public class Lostorstolenrequestdto {
+public class LostorstolenRequestDto {
 
-	
-	private int serviceRequestId;
     private long accountNumber;
     private String requestMessage;
-	private Date lostorStolenDate;
-    private long cardNumber;
+	private Date losttolenDate;
+    private BigInteger cardNumber;
     private String cardType;
-	public int getServiceRequestId() {
-		return serviceRequestId;
-	}
-	public void setServiceRequestId(int serviceRequestId) {
-		this.serviceRequestId = serviceRequestId;
-	}
+
 	public long getAccountNumber() {
 		return accountNumber;
 	}
@@ -29,16 +23,17 @@ public class Lostorstolenrequestdto {
 	public void setRequestMessage(String requestMessage) {
 		this.requestMessage = requestMessage;
 	}
-	public Date getLostorStolenDate() {
-		return lostorStolenDate;
+	public Date getLosttolenDate() {
+		return losttolenDate;
 	}
-	public void setLostorStolenDate(Date lostorStolenDate) {
-		this.lostorStolenDate = lostorStolenDate;
+	public void setLosttolenDate(Date losttolenDate) {
+		this.losttolenDate = losttolenDate;
 	}
-	public long getCardNumber() {
+
+	public BigInteger getCardNumber() {
 		return cardNumber;
 	}
-	public void setCardNumber(long cardNumber) {
+	public void setCardNumber(BigInteger cardNumber) {
 		this.cardNumber = cardNumber;
 	}
 	public String getCardType() {
@@ -46,12 +41,9 @@ public class Lostorstolenrequestdto {
 	}
 	public void setCardType(String cardType) {
 		this.cardType = cardType;
-	}	
-	
-    
-    
-    
-    
-    
-    
+	}
+
+
+
+
 }

@@ -1,12 +1,13 @@
-package com.abc.dto;
+package com.abcbankk.dto;
 
-public class Chequebookrequestdto {
-	
+public class ChequebookRequestDto {
+
+
 	private String noOfChequeLeaves;
 	private String requestMessage;
-	private int serviceRequestId;
 	private Long accountNumber;
-	
+
+
 	public String getNoOfChequeLeaves() {
 		return noOfChequeLeaves;
 	}
@@ -19,17 +20,13 @@ public class Chequebookrequestdto {
 	public void setRequestMessage(String requestMessage) {
 		this.requestMessage = requestMessage;
 	}
-	public int getServiceRequestId() {
-		return serviceRequestId;
-	}
-	public void setServiceRequestId(int serviceRequestId) {
-		this.serviceRequestId = serviceRequestId;
-	}
 	public Long getAccountNumber() {
 		return accountNumber;
 	}
 	public void setAccountNumber(Long accountNumber) {
 		this.accountNumber = accountNumber;
 	}
-	
+
+
+
 }

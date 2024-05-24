@@ -1,24 +1,32 @@
-package com.abc.dto;
+package com.abcbankk.dto;
 
-import java.io.Serializable;
+public class ServiceRequestDto {
 
-public class Servicerequestdto implements Serializable {
-	
-	//private static final long serialVersionUID = 8336749435408801262L;
-		private int servicerequestid;
-		private String status;
-		
-		public int getServicerequestid() {
-			return servicerequestid;
-		}
-		public void setServicerequestid(int servicerequestid) {
-			this.servicerequestid = servicerequestid;
-		}
-		public String getStatus() {
-			return status;
-		}
-		public void setStatus(String status) {
-			this.status = status;
-		}
+	private int serviceRequestId;
+	private String status;
+	private long accountNumber;
+
+
+
+	public long getAccountNumber() {
+		return accountNumber;
+	}
+	public void setAccountNumber(long accountNumber) {
+		this.accountNumber = accountNumber;
+	}
+	public int getServiceRequestId() {
+		return serviceRequestId;
+	}
+	public void setServiceRequestId(int serviceRequestId) {
+		this.serviceRequestId = serviceRequestId;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+
 
 }
