@@ -1,4 +1,4 @@
-package com.abcbankk.model;
+package com.abc.model;
 
 import java.math.BigInteger;
 import java.util.Date;

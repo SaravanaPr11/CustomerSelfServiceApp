@@ -1,4 +1,4 @@
-package com.abcbankk.model;
+package com.abc.model;
 
 import java.util.ArrayList;
 import java.util.Date;

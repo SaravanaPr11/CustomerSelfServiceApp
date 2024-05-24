@@ -1,4 +1,4 @@
-package com.abcbankk.repository;
+package com.abc.repository;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.abcbankk.model.AccountStatement;
+import com.abc.model.AccountStatement;
 
 @Repository
 public interface Accountstatementrepo extends JpaRepository<AccountStatement, Integer> {

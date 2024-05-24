@@ -1,10 +1,10 @@
-package com.abcbankk.repository;
+package com.abc.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.abcbankk.model.Customer;
+import com.abc.model.Customer;
 
 public interface Customerrepo extends JpaRepository<Customer, Integer>{
 
