@@ -1,4 +1,4 @@
-package com.abcbankk.serviceImplementation;
+package com.abc.serviceimplementation;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -7,11 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.abcbankk.dto.CustomerValidateDTO;
-import com.abcbankk.dto.Customerdto;
-import com.abcbankk.model.Customer;
-import com.abcbankk.repository.Customerrepo;
-import com.abcbankk.service.Customerservice;
+import com.abc.dto.CustomerValidateDTO;
+import com.abc.dto.Customerdto;
+import com.abc.model.Customer;
+import com.abc.repository.Customerrepo;
+import com.abc.service.Customerservice;
 
 @RestController
 public class Customerserviceimpl implements Customerservice {

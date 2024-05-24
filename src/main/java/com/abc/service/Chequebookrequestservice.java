@@ -1,6 +1,6 @@
-package com.abcbankk.service;
+package com.abc.service;
 
-import com.abcbankk.dto.ChequebookRequestDto;
+import com.abc.dto.ChequebookRequestDto;
 
 public interface ChequebookRequestService {
 

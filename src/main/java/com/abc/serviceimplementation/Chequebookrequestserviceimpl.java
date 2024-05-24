@@ -1,4 +1,4 @@
-package com.abcbankk.serviceImplementation;
+package com.abc.serviceimplementation;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -10,14 +10,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.abcbankk.dto.ChequebookRequestDto;
-import com.abcbankk.model.Account;
-import com.abcbankk.model.ChequebookRequest;
-import com.abcbankk.model.ServiceRequest;
-import com.abcbankk.repository.Accountrepo;
-import com.abcbankk.repository.ChequebookRequestRepo;
-import com.abcbankk.repository.ServiceRequestRepo;
-import com.abcbankk.service.ChequebookRequestService;
+import com.abc.dto.ChequebookRequestDto;
+import com.abc.model.Account;
+import com.abc.model.ChequebookRequest;
+import com.abc.model.ServiceRequest;
+import com.abc.repository.Accountrepo;
+import com.abc.repository.ChequebookRequestRepo;
+import com.abc.repository.ServiceRequestRepo;
+import com.abc.service.ChequebookRequestService;
 
 @Service
 public class ChequebookRequestServiceImpl implements ChequebookRequestService {

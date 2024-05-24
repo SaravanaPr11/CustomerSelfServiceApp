@@ -1,4 +1,4 @@
-package com.abcbankk.serviceImplementation;
+package com.abc.serviceimplementation;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -11,14 +11,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.ObjectUtils;
 
-import com.abcbankk.dto.CreditordebitRequestDto;
-import com.abcbankk.model.Account;
-import com.abcbankk.model.CreditordebitRequest;
-import com.abcbankk.model.ServiceRequest;
-import com.abcbankk.repository.Accountrepo;
-import com.abcbankk.repository.CreditordebitRequestRepo;
-import com.abcbankk.repository.ServiceRequestRepo;
-import com.abcbankk.service.CreditordebitRequestService;
+import com.abc.dto.CreditordebitRequestDto;
+import com.abc.model.Account;
+import com.abc.model.CreditordebitRequest;
+import com.abc.model.ServiceRequest;
+import com.abc.repository.Accountrepo;
+import com.abc.repository.CreditordebitRequestRepo;
+import com.abc.repository.ServiceRequestRepo;
+import com.abc.service.CreditordebitRequestService;
 
 @Service
 public class CreditordebitRequestServiceImpl implements CreditordebitRequestService {

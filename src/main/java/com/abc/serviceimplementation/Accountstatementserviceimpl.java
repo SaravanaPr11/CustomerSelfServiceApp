@@ -1,4 +1,4 @@
-package com.abcbankk.serviceImplementation;
+package com.abc.serviceimplementation;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -10,9 +10,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.ObjectUtils;
 
-import com.abcbankk.model.AccountStatement;
-import com.abcbankk.repository.Accountstatementrepo;
-import com.abcbankk.service.Accountstatementservice;
+import com.abc.model.AccountStatement;
+import com.abc.repository.Accountstatementrepo;
+import com.abc.service.Accountstatementservice;
 
 @Service
 public class Accountstatementserviceimpl implements Accountstatementservice {

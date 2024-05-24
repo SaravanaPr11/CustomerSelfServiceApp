@@ -1,4 +1,4 @@
-package com.abcbankk.serviceImplementation;
+package com.abc.serviceimplementation;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -10,16 +10,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.abcbankk.dto.LostorstolenRequestDto;
-import com.abcbankk.model.Account;
-import com.abcbankk.model.CreditordebitRequest;
-import com.abcbankk.model.LostorstolenRequest;
-import com.abcbankk.model.ServiceRequest;
-import com.abcbankk.repository.Accountrepo;
-import com.abcbankk.repository.CreditordebitRequestRepo;
-import com.abcbankk.repository.LostorstolenRequestRepo;
-import com.abcbankk.repository.ServiceRequestRepo;
-import com.abcbankk.service.LostorstolenRequestService;
+import com.abc.dto.LostorstolenRequestDto;
+import com.abc.model.Account;
+import com.abc.model.CreditordebitRequest;
+import com.abc.model.LostorstolenRequest;
+import com.abc.model.ServiceRequest;
+import com.abc.repository.Accountrepo;
+import com.abc.repository.CreditordebitRequestRepo;
+import com.abc.repository.LostorstolenRequestRepo;
+import com.abc.repository.ServiceRequestRepo;
+import com.abc.service.LostorstolenRequestService;
 
 @Service
 public class LostorstolenRequestServiceImpl implements LostorstolenRequestService {

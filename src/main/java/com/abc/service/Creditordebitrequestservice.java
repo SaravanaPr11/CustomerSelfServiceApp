@@ -1,6 +1,6 @@
-package com.abcbankk.service;
+package com.abc.service;
 
-import com.abcbankk.dto.CreditordebitRequestDto;
+import com.abc.dto.CreditordebitRequestDto;
 
 public interface CreditordebitRequestService {
 

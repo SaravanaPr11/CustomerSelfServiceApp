@@ -1,7 +1,7 @@
-package com.abcbankk.service;
+package com.abc.service;
 
-import com.abcbankk.dto.CustomerValidateDTO;
-import com.abcbankk.dto.Customerdto;
+import com.abc.dto.CustomerValidateDTO;
+import com.abc.dto.Customerdto;
 
 public interface Customerservice {
 

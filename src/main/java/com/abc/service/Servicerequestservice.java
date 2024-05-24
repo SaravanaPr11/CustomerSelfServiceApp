@@ -1,6 +1,6 @@
-package com.abcbankk.service;
+package com.abc.service;
 
-import com.abcbankk.dto.ServiceRequestDto;
+import com.abc.dto.ServiceRequestDto;
 
 public interface ServiceRequestService {
 

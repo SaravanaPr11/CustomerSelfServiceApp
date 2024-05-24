@@ -1,4 +1,4 @@
-package com.abcbankk.serviceImplementation;
+package com.abc.serviceimplementation;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,14 +8,14 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.abcbankk.dto.ServiceRequestDto;
-import com.abcbankk.model.ChequebookRequest;
-import com.abcbankk.model.CreditordebitRequest;
-import com.abcbankk.model.LostorstolenRequest;
-import com.abcbankk.repository.ChequebookRequestRepo;
-import com.abcbankk.repository.CreditordebitRequestRepo;
-import com.abcbankk.repository.LostorstolenRequestRepo;
-import com.abcbankk.service.ServiceRequestService;
+import com.abc.dto.ServiceRequestDto;
+import com.abc.model.ChequebookRequest;
+import com.abc.model.CreditordebitRequest;
+import com.abc.model.LostorstolenRequest;
+import com.abc.repository.ChequebookRequestRepo;
+import com.abc.repository.CreditordebitRequestRepo;
+import com.abc.repository.LostorstolenRequestRepo;
+import com.abc.service.ServiceRequestService;
 
 @Service
 public class ServiceRequestServiceImpl implements ServiceRequestService{

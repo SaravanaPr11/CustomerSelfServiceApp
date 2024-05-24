@@ -1,4 +1,4 @@
-package com.abcbankk.service;
+package com.abc.service;
 
 public interface Accountservice {
 

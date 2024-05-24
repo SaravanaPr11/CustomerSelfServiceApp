@@ -1,6 +1,6 @@
-package com.abcbankk.service;
+package com.abc.service;
 
-import com.abcbankk.dto.LostorstolenRequestDto;
+import com.abc.dto.LostorstolenRequestDto;
 
 public interface LostorstolenRequestService {
 
